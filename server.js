@@ -1,7 +1,10 @@
 // console.log("I am in the exppress server");
 const express = require("express");
 const errorHandler = require("./middleware/errorHandler");
+const connectDb = require("./config/dbConnection");
 const dotenve = require("dotenv").config();
+
+connectDb(); // this is the new way to connect to the database
 const app = express();;
 const port = process.env.PORT || 5000;
 
