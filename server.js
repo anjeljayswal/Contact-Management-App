@@ -1,5 +1,6 @@
 // console.log("I am in the exppress server");
 const express = require("express");
+const errorHandler = require("./middleware/errorHandler");
 const dotenve = require("dotenv").config();
 const app = express();;
 const port = process.env.PORT || 5000;
@@ -11,6 +12,6 @@ const port = process.env.PORT || 5000;
 // })
 app.use(express.json()); // this is the new way to parse json object from the body
 app.use("/api/contacts", require("./routes/contactRoutes"));
-
+app.use(errorHandler);
 
 app.listen(port, () => { console.log(`server is running on port ${port}`) });
